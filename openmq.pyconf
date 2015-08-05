@@ -1,0 +1,37 @@
+modules {
+  module {
+    name = "openmq"
+    language = "python"
+  }
+}
+
+collection_group {
+  collect_every = 10
+  time_threshold = 50
+  metric {
+    name_match = "openmq_in_([\\S]+)"
+    name = "\\1-in"
+    title = "Queue \\1 msg in"
+  }
+}
+
+collection_group {
+  collect_every = 10
+  time_threshold = 50
+  metric {
+    name_match = "openmq_out_([\\S]+)"
+    name = "\\1-out"
+    title = "Queue \\1 msg out"
+  }
+}
+
+collection_group {
+  collect_every = 10
+  time_threshold = 50
+  metric {
+    name_match = "openmq_bl_([\\S]+)"
+    name = "\\1-backlog"
+    title = "Queue \\1 msg backlog"
+  }
+}
+
